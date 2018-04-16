@@ -70,14 +70,14 @@ export default {
 }
 
 .toggle:before {
-  content: url('../assets/images/round.svg');
+  content: url('../../assets/images/round.svg');
   position: absolute;
   left: 12px;
   cursor: pointer;
 }
 
 .toggle:checked:before {
-  content: url('../assets/images/done.svg');
+  content: url('../../assets/images/done.svg');
   position: absolute;
   left: 12px;
   cursor: pointer;

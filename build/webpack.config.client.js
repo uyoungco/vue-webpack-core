@@ -42,6 +42,13 @@ if (isDev) {
           use: [
             'vue-style-loader',
             'css-loader',
+            // {
+            //   loader: 'css-loader',  // 这个对象是  让引入的CSS 也使用CSS Modules
+            //   options: {
+            //     module: true,
+            //     localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]',
+            //   }
+            // },
             {
               loader: 'postcss-loader',
               options: {

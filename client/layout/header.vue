@@ -1,9 +1,11 @@
 <template>
-  <header class="main-header">
+  <header :class="$style.mainHeader">
       <h1>JTodo</h1>
   </header>
 </template>
-<style lang="stylus" scoped>
+
+<style lang="stylus" module>
+// 当 <style> 标签有 scoped 属性时，它的 CSS 只作用于当前组件中的元素。
 .main-header {
   text-align: center;
 

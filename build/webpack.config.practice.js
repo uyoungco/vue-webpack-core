@@ -10,7 +10,9 @@ const defaultPluins = [
       NODE_ENV: '"development"'
     }
   }),
-  new HTMLPlugin()
+  new HTMLPlugin({
+    template: path.join(__dirname, './template.html')
+  })
 ]
 
 const devServer = {
@@ -20,16 +22,12 @@ const devServer = {
     errors: true // 编译过程中发生错误直接显示在网页上
   },
   hot: true // 无刷新
-  // historyFallback: {
-
-  // }
-  // open: true // 启动webpack时打开默认浏览器
 }
 
 let config
 
 config = merge(baseConfig, {
-  entry: path.join(__dirname, '../parctice/index.js'),
+  entry: path.join(__dirname, '../practice/index.js'),
   devtool: '#cheap-module-eval-source-map',
   module: {
     rules: [
@@ -38,13 +36,6 @@ config = merge(baseConfig, {
         use: [
           'vue-style-loader',
           'css-loader',
-          // {
-          //   loader: 'css-loader',  // 这个对象是  让引入的CSS 也使用CSS Modules
-          //   options: {
-          //     module: true,
-          //     localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]',
-          //   }
-          // },
           {
             loader: 'postcss-loader',
             options: {

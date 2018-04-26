@@ -20,7 +20,7 @@ const devServer = {
   port: 8000,
   host: '0.0.0.0',
   overlay: {
-    errors: true,  // 编译过程中发生错误直接显示在网页上
+    errors: true // 编译过程中发生错误直接显示在网页上
   },
   hot: true // 无刷新
   // historyFallback: {
@@ -33,7 +33,7 @@ let config
 
 // 根据环境设置
 if (isDev) {
-  config = merge(baseConfig,{
+  config = merge(baseConfig, {
     devtool: '#cheap-module-eval-source-map',
     module: {
       rules: [
@@ -52,7 +52,7 @@ if (isDev) {
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
+                sourceMap: true
               }
             },
             'stylus-loader'
@@ -63,14 +63,14 @@ if (isDev) {
     devServer,
     plugins: defaultPluins.concat([
       new webpack.HotModuleReplacementPlugin(),
-		  new webpack.NoEmitOnErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin()
     ])
   })
 } else {
   config = merge(baseConfig, {
     entry: {
-      app: path.join(__dirname, '../client/index.js'),	// 入口文件
-		  vendor: ['vue']	// 单独打包Vue框架  进行长缓存
+      app: path.join(__dirname, '../client/index.js'), // 入口文件
+      vendor: ['vue'] // 单独打包Vue框架  进行长缓存
     },
     output: {
       filename: '[name].[chunkhash:8].js'
@@ -86,7 +86,7 @@ if (isDev) {
               {
                 loader: 'postcss-loader',
                 options: {
-                  sourceMap: true,
+                  sourceMap: true
                 }
               },
               'stylus-loader'

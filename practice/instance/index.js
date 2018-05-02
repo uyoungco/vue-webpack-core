@@ -5,9 +5,10 @@ document.body.appendChild(div)
 
 const app = new Vue({
   // el: '#root',
-  template: '<div>{{text}}</div>',
+  template: '<div>{{text}}  {{obj.a}}</div>',
   data: {
-    text: 0
+    text: 0,
+    obj: {}
   }
   // watch: {
   //   text (newText, oldText) {
@@ -18,9 +19,14 @@ const app = new Vue({
 
 app.$mount('#root')
 
+let i = 0
 setInterval(() => {
-  app.text += 1
+  i++
+  // app.text += 1
   // app.$data.text += 1
+  // app.obj.a = i
+  // app.$forceUpdate()
+  app.$set(app.obj, 'a', i)
 }, 1000)
 
 // console.log(app.$data)
@@ -37,7 +43,19 @@ setInterval(() => {
 // console.log(app.$refs)
 // console.log(app.$isServer)
 
-const unWatch = app.$watch('text', (newText, oldText) => {
-  console.log(`${newText} : ${oldText}`)
+// const unWatch = app.$watch('text', (newText, oldText) => {
+//   console.log(`${newText} : ${oldText}`)
+// })
+// setTimeout(() => {
+//   unWatch()
+// }, 2000)
+
+app.$on('test', (a, b) => {
+  console.log(`test emited ${a} ${b}`)
 })
-unWatch()
+
+setInterval(() => {
+  app.$emit('test', 1, 2)
+}, 1000)
+
+// app.$forceUpdate()

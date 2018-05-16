@@ -35,6 +35,15 @@ const app = new Vue({
   },
   destroyed () {
     console.log(this, 'destroyed') // 已经被销毁
+  },
+  render (h) {
+    throw new TypeError('render error')
+  },
+  renderError (h, err) {
+    return h('div', {}, err.stack)
+  },
+  errorCaptured () {
+    // 会向上冒泡
   }
 })
 

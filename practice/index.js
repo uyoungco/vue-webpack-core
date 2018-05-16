@@ -2,4 +2,5 @@
 // import './lifecyle/index'
 // import './data-binding/index'
 // import './computed/index'
-import './directive/index'
+// import './directive/index'
+import './define'

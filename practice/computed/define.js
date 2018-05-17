@@ -10,11 +10,11 @@ const compoent = {
     proOne: String
   },
   template: `
-  <div>
-    <input type="text" v-model="proOne">
-    <span @click="handleChange">{{proOne}}</span>
-    <span v-show="active">active</span>
-  </div>
+    <div>
+      <input type="text" v-model="proOne">
+      <span @click="handleChange">{{proOne}}</span>
+      <span v-show="active">active</span>
+    </div>
   `,
   data () {
     return {

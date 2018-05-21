@@ -5,4 +5,5 @@
 // import './directive/index'
 // import './computed/define'
 // import './computed/extend'
-import './computed/v-model'
+// import './computed/features'
+import './computed/render'

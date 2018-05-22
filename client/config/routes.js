@@ -7,11 +7,25 @@ export default [
     redirect: '/app'
   },
   {
+    // path: '/app/:id',
     path: '/app',
-    component: Todo
+    // props: (route) => ({ id: route.query.b }),
+    component: Todo,
+    name: 'app'
   },
   {
     path: '/login',
-    component: Login
+    component: Login,
+    name: 'login',
+    meta: {
+      title: 'this is app',
+      description: 'asad'
+    }
+    // cildren: [
+    //   {
+    //     path: 'test',
+    //     component: Login
+    //   }
+    // ]
   }
 ]

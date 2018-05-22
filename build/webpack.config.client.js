@@ -26,7 +26,7 @@ const devServer = {
   },
   hot: true, // 无刷新
   historyApiFallback: {
-    index: '/index.html'
+    index: '/public/index.html'
   }
   // open: true // 启动webpack时打开默认浏览器
 }

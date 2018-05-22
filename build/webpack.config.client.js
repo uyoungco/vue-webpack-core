@@ -24,10 +24,10 @@ const devServer = {
   overlay: {
     errors: true // 编译过程中发生错误直接显示在网页上
   },
-  hot: true // 无刷新
-  // historyFallback: {
-
-  // }
+  hot: true, // 无刷新
+  historyApiFallback: {
+    index: '/index.html'
+  }
   // open: true // 启动webpack时打开默认浏览器
 }
 

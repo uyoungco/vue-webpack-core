@@ -2,7 +2,10 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <Todo></Todo>
+    <router-link to="/app">app</router-link>
+    <router-link to="/login">login</router-link>
+    <!-- <Todo></Todo> -->
+    <router-view />
     <Footer></Footer>
   </div>
 </template>

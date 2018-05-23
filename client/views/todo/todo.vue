@@ -29,9 +29,27 @@ import Tabs from './tabs.vue'
 let id = 0
 
 export default {
+  beforeRouteEnter (to, from, next) {
+    console.log('todo before enter')
+    next(vm => {
+      console.log('after enter vm.id is ', vm.id)
+    })
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('todo Update enter')
+    // 可以在这里获取数据 不用watch
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('todo Leave enter')
+    // if (global.confirm('are you sure?')) {
+    //   next()
+    // }
+    next()
+  },
   props: ['id'],
   mounted () {
-    console.log(this.id)
+    console.log('todo mounted ')
   },
   data () {
     return {

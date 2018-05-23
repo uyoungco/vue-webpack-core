@@ -2,7 +2,9 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <router-link to="/app/123">app</router-link>
+    <router-link to="/app">app</router-link>
+    <router-link to="/app/123">app123</router-link>
+    <router-link to="/app/456">app456</router-link>
     <router-link to="/login">login</router-link>
     <!-- <Todo></Todo> -->
     <transition name="fade">
@@ -15,13 +17,13 @@
 <script>
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
-import Todo from './views/todo/todo.vue'
+// import Todo from './views/todo/todo.vue'
 
 export default {
   components: {
     Header,
-    Footer,
-    Todo
+    Footer
+    // Todo
   },
   mounted () {
     console.log(this.$route)

@@ -3,6 +3,7 @@
     <div id="cover"></div>
     <Header></Header>
     <p>{{fullName}} {{counter}}</p>
+    <!-- <p>{{textA}}  {{textPlus}}  {{textC}}</p> -->
     <router-link to="/app">app</router-link>
     <router-link to="/app/123">app123</router-link>
     <router-link to="/app/456">app456</router-link>
@@ -58,7 +59,9 @@ export default {
     // count () {
     //   return this.$store.state.count
     // },
-    ...mapGetters(['fullName'])
+    ...mapGetters({
+      'fullName': 'fullName'
+    })
     // fullName () {
     //   return this.$store.getters.fullName
     // }

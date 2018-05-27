@@ -5,7 +5,7 @@ const isDev = process.env.NODE_ENV === 'development'
 
 const config = {
   target: 'web', // 指定是web平台
-  entry: path.join(__dirname, '../client/index.js'), // 入口文件
+  entry: path.join(__dirname, '../client/client-entry.js'), // 入口文件
   output: {
     filename: 'bundle.[hash:8].js',
     path: path.join(__dirname, '../dist'),

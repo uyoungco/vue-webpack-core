@@ -73,7 +73,7 @@ if (isDev) {
 } else {
   config = merge(baseConfig, {
     entry: {
-      app: path.join(__dirname, '../client/index.js'), // 入口文件
+      app: path.join(__dirname, '../client/client-entry.js'), // 入口文件
       vendor: ['vue'] // 单独打包Vue框架  进行长缓存
     },
     output: {

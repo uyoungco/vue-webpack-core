@@ -1,4 +1,6 @@
 const Koa = require('koa')
+const send = require('koa-send')
+const path = require('path')
 
 const pageRouter = require('./routers/dev-ssr')
 
@@ -18,6 +20,14 @@ app.use(async (ctx, next) => {
     } else {
       ctx.body = 'please try again later'
     }
+  }
+})
+
+app.use(async (ctx, next) => {
+  if (ctx.path === '/favicon.ico') {
+    await send(ctx, '/favicon.ico', { root: path.join(__dirname, '../') })
+  } else {
+    await next()
   }
 })
 

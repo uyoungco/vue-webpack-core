@@ -77,7 +77,8 @@ if (isDev) {
       vendor: ['vue'] // 单独打包Vue框架  进行长缓存
     },
     output: {
-      filename: '[name].[chunkhash:8].js'
+      filename: '[name].[chunkhash:8].js',
+      publicPath: '/public/'
     },
     module: {
       rules: [

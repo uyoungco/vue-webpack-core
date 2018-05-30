@@ -2,6 +2,8 @@
   <transition name="fade">
     <div
       class="notification"
+      :style="style"
+      v-show="visible"
     >
       <span class="content">{{content}}</span>
       <a class="btn" @click="handleClose">{{btn}}</a>
@@ -22,6 +24,16 @@ export default {
       default: '关闭'
     }
   },
+  data () {
+    return {
+      visible: true
+    }
+  },
+  computed: {
+    style () {
+      return {}
+    }
+  },
   methods: {
     handleClose (e) {
       e.preventDefault() // 阻止默认事件
@@ -38,7 +50,7 @@ export default {
   background-color #303030
   color #fff
   align-items center
-  padding 20px 
+  padding 20px
   position fixed
   min-width 280px
   box-shadow 0 3px 5px -1px rgba(0, 0, 0, 0.2),0 6px 10px 0 rgba(0, 0, 0, 0.14),0 1px 18px 0 rgba(0, 0, 0, 0.12)

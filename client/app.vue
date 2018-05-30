@@ -12,7 +12,8 @@
     <transition name="fade">
       <router-view />
     </transition>
-    <notification content="text notify" />
+    <button @click="notify">notify1111</button>
+    <!-- <notification content="text notify" /> -->
     <Footer></Footer>
   </div>
 </template>
@@ -38,12 +39,12 @@ export default {
     // Todo
   },
   mounted () {
-    console.log(this.$store)
+    // console.log(this.$store)
     // let i = 1
-    this.updateCountAsync({
-      num: 5,
-      time: 2000
-    })
+    // this.updateCountAsync({
+    //   num: 5,
+    //   time: 2000
+    // })
     // this.$store.state.count = 3
     // setInterval(() => {
     //   this.updateCount({
@@ -54,7 +55,13 @@ export default {
   },
   methods: {
     ...mapActions(['updateCountAsync']),
-    ...mapMutations(['updateCount'])
+    ...mapMutations(['updateCount']),
+    notify () {
+      this.$notify({
+        content: 'test $notify',
+        btn: 'close'
+      })
+    }
   },
   computed: {
     ...mapState({

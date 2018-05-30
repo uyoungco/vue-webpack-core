@@ -26,6 +26,7 @@ const devServer = {
   overlay: {
     errors: true // 编译过程中发生错误直接显示在网页上
   },
+  headers: {'Access-Control-Allow-Origin': '*'},
   hot: true, // 无刷新
   historyApiFallback: {
     index: '/public/index.html'

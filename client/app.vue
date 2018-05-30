@@ -4,14 +4,15 @@
     <Header></Header>
     <p>{{fullName}} {{counter}}</p>
     <!-- <p>{{textA}}  {{textPlus}}  {{textC}}</p> -->
-    <router-link to="/app">app</router-link>
+    <!-- <router-link to="/app">app</router-link>
     <router-link to="/app/123">app123</router-link>
     <router-link to="/app/456">app456</router-link>
-    <router-link to="/login">login</router-link>
+    <router-link to="/login">login</router-link> -->
     <!-- <Todo></Todo> -->
     <transition name="fade">
       <router-view />
     </transition>
+    <notification content="text notify" />
     <Footer></Footer>
   </div>
 </template>

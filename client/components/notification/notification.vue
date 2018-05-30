@@ -1,9 +1,11 @@
 <template>
-  <transition name="fade">
+  <transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
     <div
       class="notification"
       :style="style"
       v-show="visible"
+      @mouseenter = "clearTimer"
+      @mouseleave = "createTimer"
     >
       <span class="content">{{content}}</span>
       <a class="btn" @click="handleClose">{{btn}}</a>
@@ -38,7 +40,13 @@ export default {
     handleClose (e) {
       e.preventDefault() // 阻止默认事件
       this.$emit('close')
-    }
+    },
+    afterLeave () {
+      this.$emit('closed')
+    },
+    afterEnter () {},
+    clearTimer () {},
+    createTimer () {}
   }
 }
 </script>

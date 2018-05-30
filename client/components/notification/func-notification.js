@@ -26,6 +26,10 @@ export default {
       if (this.timer) {
         clearTimeout(this.timer)
       }
+    },
+    afterEnter () {
+      // debugger // eslint-disable-line
+      this.height = this.$el.offsetHeight
     }
   },
   beforeDestory () {
@@ -34,7 +38,9 @@ export default {
   data () {
     return {
       verticalOffset: 0,
-      autoClose: 3000
+      autoClose: 3000,
+      height: 0,
+      visible: false
     }
   }
 }

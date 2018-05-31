@@ -9,6 +9,21 @@
     <router-link to="/app/456">app456</router-link>
     <router-link to="/login">login</router-link> -->
     <!-- <Todo></Todo> -->
+
+    <!-- <tabs>
+      <tab lable="text">
+        <span slot="lable"></span>
+        <p>This is tab content</p>
+      <tab>
+    </tabs>
+    <ul>
+      <li>label</li>
+      <li>label2</li>
+    </ul>
+    <div class="tab-content">
+      <p>This is tab content</p>
+    </div> -->
+   
     <transition name="fade">
       <router-view />
     </transition>

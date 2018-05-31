@@ -13,7 +13,12 @@ export default {
   },
   computed: {
     active () {
-      return false
+      return this.$parent.value === this.index
+    }
+  },
+  methods: {
+    handleClick () {
+      this.$parent.onChange(this.index)
     }
   },
   render () {
@@ -23,7 +28,7 @@ export default {
       active: this.active
     }
     return (
-      <li class={className}>
+      <li class={className} on-click={this.handleClick}>
         {tab}
       </li>
     )
@@ -40,7 +45,7 @@ export default {
   bottom -2px
   cursor pointer
   &.active
-    border-botton 2px solid blue
+    border-bottom 2px solid blue
   &:last-child
     margin-right 0
 </style>

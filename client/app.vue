@@ -23,7 +23,7 @@
     <div class="tab-content">
       <p>This is tab content</p>
     </div> -->
-   
+
     <transition name="fade">
       <router-view />
     </transition>

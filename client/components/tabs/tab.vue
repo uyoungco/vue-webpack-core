@@ -11,6 +11,9 @@ export default {
       default: 'tab'
     }
   },
+  mounted () {
+    this.$parent.panes.push(this)
+  },
   computed: {
     active () {
       return this.$parent.value === this.index

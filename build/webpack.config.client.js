@@ -32,8 +32,8 @@ const devServer = {
     index: '/public/index.html'
   },
   proxy: {
-    '/api': 'http://172.0.0.1:3333',
-    '/user': 'http://172.0.0.1:3333'
+    '/api': 'http://127.0.0.1:3333',
+    '/user': 'http://127.0.0.1:3333'
   }
   // open: true // 启动webpack时打开默认浏览器
 }

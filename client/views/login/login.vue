@@ -23,6 +23,10 @@
 
 
 <script>
+import {
+  mapActions
+} from 'vuex'
+
 export default {
   metaInfo: {
     title: 'The Login App'
@@ -35,10 +39,18 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['login']),
     doSubmit (e) {
       e.preventDefault()
       if (this.validate()) {
         // 调用服务端接口
+        this.login({
+          username: this.username,
+          password: this.password
+        })
+          .then(() => {
+            this.$router.replace('/app')
+          })
       }
     },
     validate () {

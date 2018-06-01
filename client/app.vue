@@ -2,7 +2,7 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p>{{fullName}} {{counter}}</p>
+    <!-- <p>{{fullName}} {{counter}}</p> -->
     <!-- <p>{{textA}}  {{textPlus}}  {{textC}}</p> -->
     <!-- <router-link to="/app">app</router-link>
     <router-link to="/app/123">app123</router-link>
@@ -27,19 +27,19 @@
     <transition name="fade">
       <router-view />
     </transition>
-    <button @click="notify">notify1111</button>
+    <!-- <button @click="notify">notify1111</button> -->
     <!-- <notification content="text notify" /> -->
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import {
-  mapState,
-  mapGetters,
-  mapActions,
-  mapMutations
-} from 'vuex'
+// import {
+//   mapState,
+//   mapGetters,
+//   mapActions,
+//   mapMutations
+// } from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
 // import Todo from './views/todo/todo.vue'
@@ -69,8 +69,8 @@ export default {
     // }, 1000)
   },
   methods: {
-    ...mapActions(['updateCountAsync']),
-    ...mapMutations(['updateCount']),
+    // ...mapActions(['updateCountAsync']),
+    // ...mapMutations(['updateCount']),
     notify () {
       this.$notify({
         content: 'test $notify',
@@ -79,15 +79,15 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      counter: (state) => state.count
-    }),
+    // ...mapState({
+    //   counter: (state) => state.count
+    // }),
     // count () {
     //   return this.$store.state.count
     // },
-    ...mapGetters({
-      'fullName': 'fullName'
-    })
+    // ...mapGetters({
+    //   'fullName': 'fullName'
+    // })
     // fullName () {
     //   return this.$store.getters.fullName
     // }

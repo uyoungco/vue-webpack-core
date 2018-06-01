@@ -30,6 +30,10 @@ const devServer = {
   hot: true, // 无刷新
   historyApiFallback: {
     index: '/public/index.html'
+  },
+  proxy: {
+    '/api': 'http://172.0.0.1:3333',
+    '/user': 'http://172.0.0.1:3333'
   }
   // open: true // 启动webpack时打开默认浏览器
 }

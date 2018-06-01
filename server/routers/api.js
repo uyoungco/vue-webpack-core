@@ -2,6 +2,17 @@ const Router = require('koa-router')
 
 const apiRoutrt = new Router({ prefix: '/api' })
 
+const validateUser = async (ctx, next) => {
+  if (!ctx.session.user) {
+    ctx.status = 401
+    ctx.body = 'need login'
+  } else {
+    await next()
+  }
+}
+
+apiRoutrt.use(validateUser)
+
 const successResponse = (data) => {
   return {
     success: true,

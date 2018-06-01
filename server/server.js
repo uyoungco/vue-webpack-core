@@ -1,6 +1,7 @@
 const Koa = require('koa')
 const send = require('koa-send')
 const path = require('path')
+const KoaBody = require('koa-body')
 
 const staticRouter = require('./routers/static')
 const apiRouter = require('./routers/api')
@@ -41,6 +42,7 @@ app.use(async (ctx, next) => {
   }
 })
 
+app.use(KoaBody())
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
 app.use(apiRouter.routes()).use(staticRouter.allowedMethods())
 

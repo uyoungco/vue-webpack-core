@@ -61,10 +61,16 @@ export default {
   props: ['id'],
   mounted () {
     // console.log('todo mounted ')
-    this.fetchTodos()
+    if (this.todos && this.todos.length < 1) {
+      this.fetchTodos()
+    }
   },
   asyncData ({ store }) {
-    return store.dispatch('fetchTodos')
+    console.log('store.state.user', store.state.user)
+    if (store.state.user) {
+      return store.dispatch('fetchTodos')
+    }
+    return Promise.resolve()
   },
   data () {
     return {

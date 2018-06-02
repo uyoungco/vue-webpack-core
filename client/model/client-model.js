@@ -26,10 +26,22 @@ const handleRequset = (request) => {
 }
 
 export default {
-  getAllTodos () {
+  getAllTodos () { // 查询所有
     return handleRequset(request.get('/api/todos'))
   },
-  login (username, password) {
+  login (username, password) { // 登录
     return handleRequset(request.post('/user/login', {username, password}))
+  },
+  updateTodo (id, todo) { // 更新状态
+    return handleRequset(request.put(`/api/todo/${id}`, todo))
+  },
+  createTodo (todo) { // 创建新的Todo
+    return handleRequset(request.post('/api/todo', todo))
+  },
+  deleteTodo (id) { // 删除Todo
+    return handleRequset(request.delete(`/api/todo/${id}`))
+  },
+  deleteAllCompleted (ids) { // 批量删除
+    return handleRequset(request.post('/api/delete/completed', { ids }))
   }
 }

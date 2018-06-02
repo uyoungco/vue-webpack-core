@@ -10,13 +10,14 @@
       class="add-input"
       autofocus="autofocus"
       placeholder="接下去要去做什么"
-      @keyup.enter = "addTodo"
+      @keyup.enter = "handleAdd"
     >
     <Item
       :todo="todo"
       v-for="todo in filteredTodos"
       :key="todo.id"
       @del="deleteTodo"
+      @toggle="toggleTodoState"
     />
     <Helper
      :filter="filter"
@@ -83,20 +84,41 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['fetchTodos']),
-    // addTodo (e) {
-    //   this.todos.unshift({
-    //     id: id++,
-    //     content: e.target.value.trim(),
-    //     completed: false
-    //   })
-    //   e.target.value = ''
+    ...mapActions([
+      'fetchTodos',
+      'addTodo',
+      'deleteTodo',
+      'updateTodo',
+      'deleteAllCompleted'
+    ]),
+    handleAdd (e) {
+      const content = e.target.value.trim()
+      if (!content) {
+        this.$notify({
+          content: '你到是写啊！(•́へ•́╬)'
+        })
+      }
+      const todo = {
+        content,
+        completed: false
+      }
+      this.addTodo(todo)
+      e.target.value = ''
+    },
+    // deleteTodo (id) {
+    //   this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     // },
-    deleteTodo (id) {
-      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
+    toggleTodoState (todo) {
+      this.updateTodo({
+        id: todo.id,
+        todo: Object.assign({}, todo, {
+          completed: !todo.completed
+        })
+      })
     },
     clearAllCompleted () {
-      this.todos = this.todos.filter(todo => !todo.completed)
+      // this.todos = this.todos.filter(todo => !todo.completed)
+      this.deleteAllCompleted()
     },
     handleChangTab (value) {
       this.filter = value

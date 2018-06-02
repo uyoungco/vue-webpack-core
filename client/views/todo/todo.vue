@@ -65,11 +65,12 @@ export default {
       this.fetchTodos()
     }
   },
-  asyncData ({ store }) {
+  asyncData ({ store, router }) {
     console.log('store.state.user', store.state.user)
     if (store.state.user) {
       return store.dispatch('fetchTodos')
     }
+    router.replace('/login')
     return Promise.resolve()
   },
   data () {

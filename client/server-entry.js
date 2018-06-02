@@ -19,12 +19,14 @@ export default context => {
         if (Component.asyncData) {
           return Component.asyncData({
             route: router.currentRoute,
+            router,
             store
           })
         }
       })).then(data => {
         context.meta = app.$meta()
         context.state = store.state
+        context.router = router
         resolve(app)
       })
     })

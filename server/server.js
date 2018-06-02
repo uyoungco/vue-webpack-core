@@ -57,15 +57,16 @@ app.use(apiRouter.routes()).use(apiRouter.allowedMethods())
 
 let pageRouter
 if (isDev) {
-  pageRouter = require('./routers/dev-ssr')
-  // pageRouter = require('./routers/dev-ssr-no-bundle')
+  // pageRouter = require('./routers/dev-ssr')
+  pageRouter = require('./routers/dev-ssr-no-bundle')
 } else {
-  pageRouter = require('./routers/ssr')
+  // pageRouter = require('./routers/ssr')
+  pageRouter = require('./routers/ssr-no-bundle')
 }
 app.use(pageRouter.routes()).use(pageRouter.allowedMethods())
 
 const HOST = process.env.HOST || '0.0.0.0'
-const PORT = process.env.PORT || '3333'
+const PORT = process.env.PORT || 3333
 
 app.listen(PORT, HOST, () => {
   console.log(`server is listen on ${HOST}:${PORT}`)

@@ -15,7 +15,7 @@ export default [
     //   default: Todo,
     //   a: Login
     // },
-    component: () => import('../views/todo/todo.vue'),
+    component: () => import(/* webpackChunkName: "todu-view" */ '../views/todo/todo.vue'),
     name: 'app',
     beforeEnter (to, from, next) {
       console.log('app route')
@@ -24,7 +24,7 @@ export default [
   },
   {
     path: '/login',
-    component: () => import('../views/login/login.vue'),
+    component: () => import(/* webpackChunkName: "login-view" */ '../views/login/login.vue'),
     name: 'login',
     meta: {
       title: 'this is app',
